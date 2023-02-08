@@ -1,38 +1,262 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#root {
+    text-align: center;
+    background: repeating-linear-gradient(
+        0deg,
+        rgb(233, 71, 71),
+        rgb(233, 71, 71) 10px,
+        white 10px,
+        white 20px
+    );
+    height: 100vh;
+}
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*👉HEADER👈*/
+.header-container {
+    width: 100%;
+    background: repeating-linear-gradient(
+        -45deg,
+        rgb(240, 240, 109),
+        rgb(240, 240, 109) 10px,
+        black 10px,
+        black 20px
+    );
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 80px;
+    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.header-container > h1 {
+    color: red;
+    font-size: 3rem;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+    -webkit-text-stroke: 1px white;
+    margin-left: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.item-container {
+    background-color: white;
+    display: flex;
+    height: 80%;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75)inset;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75)inset;
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75)inset;
+    border: 2px solid red;
+}
+.item-container > img {
+    padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.score-container {
+    background-color: white;
+    height: 80%;
+    width: 220px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    transition: transform 1.5s ease-in-out;
+    margin-right: 20px;
+
+    
+
+}
+@keyframes scoreContainer {
+
+    0% {transform: translateX(-315px)}
+
+    100%{transform: translateX(0px)}
+    
+}
+.score-container > button {
+    width: 35px;
+    border: solid red;
+    background-color: red;
+    cursor: pointer;
+}
+.score-container > button:hover {
+    background-color: rgb(242, 94, 94);
+}
+.score-container > button:active {
+    background-color: rgb(205, 73, 73);
+}
+.reset-button {
+    border-radius: 26px 0px 0px 26px;
+}
+.get-scores-button {
+    border-radius: 0px 26px 26px 0px;
+}
+.score-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.App-link {
-  color: #61dafb;
+/*👉PICTURE👈*/
+.click-to-start {
+    width: 100%;
+    height: 600px;
+    font-size: 5rem;
+    background-color: rgb(27, 22, 22);
+    color: red;
+    border: none;
+    -webkit-text-stroke: 1px white;
+        text-shadow: 4px 4px 2px rgba(72, 68, 68, 0.6);
+}
+.picture-container {
+    border: 30px ridge yellow;
+    border-radius: 6px;
+    width: 800px;
+    margin-top: 60px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    position: relative;
+}
+.picture-container > img {
+    margin-bottom: -4px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*👉DROP DOWN👈*/
+.drop-down-items {
+    position: absolute;
+    background-color: aqua;
+}
+.drop-down-items > ul {
+    list-style: none;
+}
+.drop-down-items > ul > li {
+    padding: 10px;
+    cursor: pointer;
+}
+.drop-down-items > ul > li:hover {
+    background-color: azure;
+}
+/*👉TOP SCORE FORM👈*/
+.top-score-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    height: 150px;
+    top: 40%;
+    position: absolute;
+    background-color: red;
+    z-index: 99;
+    border-radius: 30px;
+    border: 2px solid white;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.top-score-form > input {
+    width: 200px;
+    text-align: center;
+    border-radius: 6px;
+}
+.form-submit-button {
+    width: 80px;
+    height: 30px;
+    background-color: rgb(42, 250, 42);
+    border-radius: 6px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.form-submit-button:hover {
+    background-color: rgb(5, 191, 5);
+}
+.form-submit-button:active {
+    background-color: rgb(5, 191, 5);
+    border: 0.5px solid white;
+}
+.form-reset-button {
+    cursor: pointer;
+    border-radius: 50%;
+    height: 28px;
+    width: 28px;
+}
+/*👉SCORE BOARD👈*/
+.score-board-container {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    position: absolute;
+    background-color: red;
+    z-index: 99;
+    border-radius: 6px;
+    border: 2px solid white;
+    color: white;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.score-board-container > h4 {
+    padding: 10px;
+    font-size: 2rem;
+}
+.score-board {
+    overflow-y: scroll;
+    height: 75%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.score-board > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px 20px;
+}
+.score-board::-webkit-scrollbar {
+    display: none;
+}
+.score-board-reset-button {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    padding-bottom: 2px;
+}
+.score-name {
+    max-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+/*👉KEY FRAMES👈*/
+
+
+
+/*👉MEDIA Q👈*/
+@media screen and (max-width :940px){
+
+    .header-container > h1 {
+
+    font-size: 2rem;
+
+}
 }
